@@ -27,6 +27,7 @@ import {startSSB} from './ssb';
   if (argv.whoami) {
     const ssb = startSSB();
     console.log(ssb.id);
+    await sleep(200);
     await run(ssb.close)();
     return;
   }
@@ -42,6 +43,7 @@ import {startSSB} from './ssb';
       return;
     }
     console.log(`Connecting to the room...`);
+    await sleep(200);
     var [err] = await run(ssb.conn.connect)(msaddr);
     if (err) {
       console.error(err.message);
@@ -73,7 +75,7 @@ import {startSSB} from './ssb';
   if (argv.signIn) {
     const msaddr = argv.signIn;
     const ssb = startSSB();
-    console.log('Connecting to the room...');
+    console.log(`Connecting to the room...`);
     await sleep(200);
     var [err] = await run(ssb.conn.connect)(msaddr);
     if (err) {
