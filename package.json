@@ -20,7 +20,7 @@
     "secret-stack": "^6.3.2",
     "ssb-caps": "^1.1.0",
     "ssb-conn": "2",
-    "ssb-http-auth-client": "^0.2.0",
+    "ssb-http-auth-client": "^0.2.3",
     "ssb-keys": "^8.1.0",
     "ssb-ref": "^2.14.3",
     "ssb-room-client": "^0.7.0",

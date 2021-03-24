@@ -14,6 +14,7 @@ Options:
   --version        Show version number                                 [boolean]
   --whoami         Display info about the dummy SSB feed used here     [boolean]
   --consume-alias  Input an alias URL to connect to the alias's owner   [string]
+  --sign-in        Input the multiserver address of server to login to  [string]
 ```
 
 ## Custom URI Setup
@@ -62,9 +63,9 @@ Not yet supported.
   - [x] URI-spawn on `consume-alias`, then muxrpc-connect to the room, then tunnel-connect to the alias owner
   - [x] CLI cmd to input alias URL, which will then JSON fetch details, then muxrpc-connect to the room, then tunnel-connect to the alias owner
 - [ ] Sign-in with SSB
-  - [ ] CLI cmd to generate sign-in URL, then stay up for 2 minutes so the browser has time to log in
+  - [x] CLI cmd to generate sign-in URL, then stay up for 2 minutes so the browser has time to log in
   - [ ] URI-spawn on `start-http-auth`, then send solution to the server
-- Invites
+- [ ] Invites
   - [ ] URI-spawn on `join-room`, then submit ID to `submissionUrl`, then muxrpc-connect to the room
   - [ ] CLI cmd to consume the invite URL, adds ?encoding=json, then muxrpc-connect to the room
 
