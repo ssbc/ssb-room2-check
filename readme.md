@@ -68,6 +68,10 @@ Not yet supported.
 - [ ] Invites
   - [ ] URI-spawn on `join-room`, then submit ID to `submissionUrl`, then muxrpc-connect to the room
   - [ ] CLI cmd to consume the invite URL, adds ?encoding=json, then muxrpc-connect to the room
+- [ ] Instructions
+  - [ ] 1st consume alias as a non-member
+  - [ ] 2nd consume invite to become member
+  - [ ] 3rd sign-in
 
 ## License
 
