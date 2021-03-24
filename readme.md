@@ -62,9 +62,9 @@ Not yet supported.
 - [x] Alias consumption
   - [x] URI-spawn on `consume-alias`, then muxrpc-connect to the room, then tunnel-connect to the alias owner
   - [x] CLI cmd to input alias URL, which will then JSON fetch details, then muxrpc-connect to the room, then tunnel-connect to the alias owner
-- [ ] Sign-in with SSB
+- [x] Sign-in with SSB
   - [x] CLI cmd to generate sign-in URL, then stay up for 2 minutes so the browser has time to log in
-  - [ ] URI-spawn on `start-http-auth`, then send solution to the server
+  - [x] URI-spawn on `start-http-auth`, then send solution to the server
 - [ ] Invites
   - [ ] URI-spawn on `join-room`, then submit ID to `submissionUrl`, then muxrpc-connect to the room
   - [ ] CLI cmd to consume the invite URL, adds ?encoding=json, then muxrpc-connect to the room

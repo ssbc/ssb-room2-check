@@ -43,6 +43,15 @@ printHorizontalLine();
     printHorizontalLine();
   }
 
+  if (action === 'start-http-auth') {
+    const ssb = startSSB();
+    console.log(`Signing-in to server...`);
+    const [err] = await run(ssb.httpAuthClient.consumeSignInSsbUri)(uri)
+    if (err) console.error(err.message);
+    else console.log(`Success`);
+    printHorizontalLine();
+  }
+
   console.log('Done. This will close in 20 seconds.');
   await sleep(20e3);
 })();
