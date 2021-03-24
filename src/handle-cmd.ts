@@ -10,6 +10,10 @@ import {startSSB} from './ssb';
       type: 'boolean',
       describe: 'Display info about the dummy SSB feed used here',
     })
+    .option('claim-invite', {
+      type: 'string',
+      describe: 'Input an invite URL to become a room member',
+    })
     .option('consume-alias', {
       type: 'string',
       describe: "Input an alias URL to connect to the alias's owner",
@@ -23,6 +27,34 @@ import {startSSB} from './ssb';
   if (argv.whoami) {
     const ssb = startSSB();
     console.log(ssb.id);
+    await run(ssb.close)();
+    return;
+  }
+
+  if (argv.claimInvite) {
+    const uri = argv.claimInvite;
+    const ssb = startSSB();
+    console.log(`Claiming invite...`);
+    var [err, msaddr] = await run(ssb.roomClient.consumeInviteUri)(uri);
+    if (err) {
+      console.error(err.message);
+      await run(ssb.close)();
+      return;
+    }
+    console.log(`Connecting to the room...`);
+    var [err] = await run(ssb.conn.connect)(msaddr);
+    if (err) {
+      console.error(err.message);
+      await run(ssb.close)();
+      return;
+    }
+    console.log(`Storing the room's address in ConnDB...`);
+    var [err] = await run(ssb.conn.remember)(msaddr, {type: 'room'});
+    if (err) {
+      console.error(err.message);
+      await run(ssb.close)();
+      return;
+    } else console.log(`Success`);
     await run(ssb.close)();
     return;
   }
@@ -46,17 +78,21 @@ import {startSSB} from './ssb';
     var [err] = await run(ssb.conn.connect)(msaddr);
     if (err) {
       console.error(err.message);
+      await run(ssb.close)();
       return;
     }
     const {key} = Ref.toAddress(msaddr);
     console.log(`Producing Sign-in URL...`);
     var [err, url] = await run(ssb.httpAuthClient.produceSignInWebUrl)(key);
-    if (err) console.error(err.message);
-    else
-      console.log(
-        `Success. Open the following link in your browser ` +
-          `within the next 2 minutes:\n\n${url}`,
-      );
+    if (err) {
+      console.error(err.message);
+      await run(ssb.close)();
+      return;
+    }
+    console.log(
+      `Success. Open the following link in your browser ` +
+        `within the next 2 minutes:\n\n${url}`,
+    );
     await sleep(120e3);
     await run(ssb.close)();
     return;

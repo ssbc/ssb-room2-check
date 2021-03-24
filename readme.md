@@ -65,9 +65,9 @@ Not yet supported.
 - [x] Sign-in with SSB
   - [x] CLI cmd to generate sign-in URL, then stay up for 2 minutes so the browser has time to log in
   - [x] URI-spawn on `start-http-auth`, then send solution to the server
-- [ ] Invites
+- [x] Invites
   - [x] URI-spawn on `join-room`, then submit ID to `submissionUrl`, then muxrpc-connect to the room
-  - [ ] CLI cmd to consume the invite URL, adds ?encoding=json, then muxrpc-connect to the room
+  - [x] CLI cmd to consume the invite URL, adds ?encoding=json, then muxrpc-connect to the room
 - [ ] Instructions
   - [ ] 1st consume alias as a non-member
   - [ ] 2nd consume invite to become member
