@@ -23,7 +23,7 @@
     "ssb-http-auth-client": "^0.2.5",
     "ssb-keys": "^8.1.0",
     "ssb-ref": "^2.14.3",
-    "ssb-room-client": "^0.7.0",
+    "ssb-room-client": "^0.8.0",
     "yargs": "^16.2.0"
   },
   "devDependencies": {
