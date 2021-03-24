@@ -2,6 +2,8 @@
 
 > A CLI tool to manually test room 2.0 features
 
+Uses a throw-away test SSB ID stored at `/tmp/ssb-room2-check`.
+
 ## Usage
 
 ```
@@ -57,21 +59,52 @@ Not yet supported.
 
 Not yet supported.
 
-## Roadmap
 
-- [x] Alias consumption
-  - [x] URI-spawn on `consume-alias`, then muxrpc-connect to the room, then tunnel-connect to the alias owner
-  - [x] CLI cmd to input alias URL, which will then JSON fetch details, then muxrpc-connect to the room, then tunnel-connect to the alias owner
-- [x] Sign-in with SSB
-  - [x] CLI cmd to generate sign-in URL, then stay up for 2 minutes so the browser has time to log in
-  - [x] URI-spawn on `start-http-auth`, then send solution to the server
-- [x] Invites
-  - [x] URI-spawn on `join-room`, then submit ID to `submissionUrl`, then muxrpc-connect to the room
-  - [x] CLI cmd to consume the invite URL, adds ?encoding=json, then muxrpc-connect to the room
-- [ ] Instructions
-  - [ ] 1st consume alias as a non-member
-  - [ ] 2nd consume invite to become member
-  - [ ] 3rd sign-in
+## Examples
+
+Please notice that the sample data in these examples are fictitious and most likely will not work.
+
+### First, let's consume some user's alias
+
+```
+$ npx ssb-room2-check --consume-alias="alice.scuttlebutt.eu"
+
+Consuming alias...
+Success
+```
+
+Alternatively, you can also click on the SSB URI when visiting the page `alice.scuttlebutt.eu` in your browser.
+
+### Then, let's claim an invite link to become a member
+
+```
+$ npx ssb-room2-check --claim-invite="https://scuttlebutt.eu/join?invite=39c0ac1850ec9af14f1bb73"
+
+Claiming invite...
+Connecting to the room...
+Storing the room's address in ConnDB...
+Success
+```
+
+Alternatively, instead of passing a web URL, you can also pass an SSB URI:
+Alternatively, instead of using the CLI, you can go to the invite link in your browser, and then click the SSB URI that it displays.
+
+### Finally, let's sign-in with SSB
+
+```
+$ npx ssb-room2-check --sign-in="net:scuttlebutt.eu:8008~shs:zz+n7zuFc4wofIgKeEpXgB+/XQZB43Xj2rrWyD0QM2M="
+
+Connecting to the room...
+Producing Sign-in URL...
+Success. Open the following link in your browser `within the next 2 minutes:
+
+
+https://scuttlebutt.eu/login?cid=%40NGxQWnDZG0XNlfXRuENiJmdsjzGqty%2BjxF1enIHGL5M%3D.ed25519&cc=Mjk1GLG3zmhMzwN6GY7JTFIMYEc%2BygXcunMfj4vx%2Fw8%3D
+```
+
+Then, click the URL that was generated, and you should now be logged-in.
+
+Alternatively, instead of using the CLI, you can go to the room's sign-in page, input your SSB ID (run `npx ssb-room2-check --whoami`) or alias, and then click the SSB URI that it displays.
 
 ## License
 
