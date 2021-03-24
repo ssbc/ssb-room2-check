@@ -86,7 +86,6 @@ Storing the room's address in ConnDB...
 Success
 ```
 
-Alternatively, instead of passing a web URL, you can also pass an SSB URI:
 Alternatively, instead of using the CLI, you can go to the invite link in your browser, and then click the SSB URI that it displays.
 
 ### Finally, let's sign-in with SSB
