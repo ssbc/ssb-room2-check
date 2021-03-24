@@ -1,0 +1,33 @@
+{
+  "name": "ssb-room2-check",
+  "version": "0.1.0",
+  "description": "CLI tool to manually test room 2.0 features",
+  "main": "lib/index.js",
+  "bin": "lib/bin.js",
+  "scripts": {
+    "compile": "tsc",
+    "test": "npm run compile"
+  },
+  "author": "Andre Staltz <contact@staltz.com>",
+  "repository": {
+    "url": "https://github.com/ssb-ngi-pointer/ssb-room2-check"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "cli-width": "^3.0.0",
+    "pad": "^3.2.0",
+    "promisify-tuple": "^1.0.1",
+    "secret-stack": "^6.3.2",
+    "ssb-caps": "^1.1.0",
+    "ssb-conn": "2",
+    "ssb-http-auth-client": "^0.2.0",
+    "ssb-keys": "^8.1.0",
+    "ssb-ref": "^2.14.3",
+    "ssb-room-client": "^0.7.0",
+    "yargs": "^16.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.35",
+    "typescript": "^4.2.3"
+  }
+}
