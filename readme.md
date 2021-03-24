@@ -96,7 +96,7 @@ $ npx ssb-room2-check --sign-in="net:scuttlebutt.eu:8008~shs:zz+n7zuFc4wofIgKeEp
 
 Connecting to the room...
 Producing Sign-in URL...
-Success. Open the following link in your browser `within the next 2 minutes:
+Success. Open the following link in your browser within the next 2 minutes:
 
 
 https://scuttlebutt.eu/login?cid=%40NGxQWnDZG0XNlfXRuENiJmdsjzGqty%2BjxF1enIHGL5M%3D.ed25519&cc=Mjk1GLG3zmhMzwN6GY7JTFIMYEc%2BygXcunMfj4vx%2Fw8%3D
