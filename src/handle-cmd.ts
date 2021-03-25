@@ -22,6 +22,10 @@ import {startSSB} from './ssb';
       type: 'string',
       describe: 'Input the multiserver address of server to login to',
     })
+    .option('sign-out', {
+      type: 'string',
+      describe: 'Input the multiserver address of server to sign out',
+    })
     .usage('ssb-room2-check [opts]').argv;
 
   if (argv.whoami) {
@@ -100,6 +104,30 @@ import {startSSB} from './ssb';
         `within the next 2 minutes:\n\n${url}`,
     );
     await sleep(120e3);
+    await run(ssb.close)();
+    return;
+  }
+
+  if (argv.signOut) {
+    const msaddr = argv.signOut;
+    const ssb = startSSB();
+    console.log(`Connecting to the room...`);
+    await sleep(200);
+    var [err] = await run(ssb.conn.connect)(msaddr);
+    if (err) {
+      console.error(err.message);
+      await run(ssb.close)();
+      return;
+    }
+    const {key} = Ref.toAddress(msaddr);
+    console.log(`Invalidate all tokens...`);
+    var [err] = await run(ssb.httpAuthClient.invalidateAllSessions)(key);
+    if (err) {
+      console.error(err.message);
+      await run(ssb.close)();
+      return;
+    }
+    console.log(`Success`);
     await run(ssb.close)();
     return;
   }
