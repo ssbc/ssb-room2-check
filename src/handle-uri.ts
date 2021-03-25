@@ -37,6 +37,7 @@ printHorizontalLine();
   if (action === 'consume-alias') {
     const ssb = startSSB();
     console.log(`Consuming alias...`);
+    await sleep(300);
     const [err] = await run(ssb.roomClient.consumeAliasUri)(uri);
     if (err) console.error(err.message);
     else console.log(`Success`);
@@ -46,6 +47,7 @@ printHorizontalLine();
   if (action === 'start-http-auth') {
     const ssb = startSSB();
     console.log(`Signing-in to server...`);
+    await sleep(300);
     const [err] = await run(ssb.httpAuthClient.consumeSignInSsbUri)(uri);
     if (err) console.error(err.message);
     else console.log(`Success`);
@@ -55,6 +57,7 @@ printHorizontalLine();
   if (action === 'join-room') {
     const ssb = startSSB();
     console.log(`Claiming room invite...`);
+    await sleep(300);
     const [err] = await run(ssb.roomClient.consumeInviteUri)(uri);
     if (err) console.error(err.message);
     else console.log(`Success`);
