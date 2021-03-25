@@ -15,8 +15,10 @@ Options:
   --help           Show help                                           [boolean]
   --version        Show version number                                 [boolean]
   --whoami         Display info about the dummy SSB feed used here     [boolean]
+  --claim-invite   Input an invite URL to become a room member          [string]
   --consume-alias  Input an alias URL to connect to the alias's owner   [string]
   --sign-in        Input the multiserver address of server to login to  [string]
+  --sign-out       Input the multiserver address of server to sign out  [string]
 ```
 
 ## Custom URI Setup
@@ -104,6 +106,18 @@ https://scuttlebutt.eu/login?cid=%40NGxQWnDZG0XNlfXRuENiJmdsjzGqty%2BjxF1enIHGL5
 Then, click the URL that was generated, and you should now be logged-in.
 
 Alternatively, instead of using the CLI, you can go to the room's sign-in page, input your SSB ID (run `npx ssb-room2-check --whoami`) or alias, and then click the SSB URI that it displays.
+
+### We can also sign-out
+
+The following command should clear previous browser sessions:
+
+```
+$ npx --sign-out "net:scuttlebutt.eu:8008~shs:zz+n7zuFc4wofIgKeEpXgB+/XQZB43Xj2rrWyD0QM2M="
+
+Connecting to the room...
+Invalidate all tokens...
+Success
+```
 
 ## License
 
