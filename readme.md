@@ -112,7 +112,7 @@ Alternatively, instead of using the CLI, you can go to the room's sign-in page, 
 The following command should clear previous browser sessions:
 
 ```
-$ npx --sign-out "net:scuttlebutt.eu:8008~shs:zz+n7zuFc4wofIgKeEpXgB+/XQZB43Xj2rrWyD0QM2M="
+$ npx ssb-room2-check --sign-out "net:scuttlebutt.eu:8008~shs:zz+n7zuFc4wofIgKeEpXgB+/XQZB43Xj2rrWyD0QM2M="
 
 Connecting to the room...
 Invalidate all tokens...
