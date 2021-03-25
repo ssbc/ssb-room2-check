@@ -91,6 +91,10 @@ import {startSSB} from './ssb';
       await run(ssb.close)();
       return;
     }
+    if (url.includes('localhost')) {
+      url = url.replace('localhost', 'localhost:3000')
+      url = url.replace('https', 'http')
+    }
     console.log(
       `Success. Open the following link in your browser ` +
         `within the next 2 minutes:\n\n${url}`,
