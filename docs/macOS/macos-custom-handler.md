@@ -4,7 +4,11 @@ The easiest way of doing it, that is built-in with all macs, is to use AppleScri
 
 ```AppleScript
 on open location myURL
-    do shell script "npx ssb-room2-check " & myURL
+	tell application "Terminal"
+		activate
+		delay 1
+		do script "npx ssb-room2-check " & quote & myURL & quote in front window
+	end tell
 end open location
 ```
 
