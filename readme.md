@@ -66,12 +66,11 @@ Modify the file `~/.local/share/applications/defaults.list` (or, if that doesn't
 
 ### macOS
 
-Not yet supported.
+In macOS, an application can register itself as the handler for custom URL schemes. The easiest way to make `ssb-room2-check` the handler for `ssb:` URLs is to create a minimal app wrapper. The procedure for doing it is documented in [macos-custom-handler.md](/docs/macOS/macos-custom-handler.md).
 
 ### Windows
 
 Not yet supported.
-
 
 ## Examples
 
