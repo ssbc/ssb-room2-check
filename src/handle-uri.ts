@@ -54,13 +54,31 @@ printHorizontalLine();
     printHorizontalLine();
   }
 
-  if (action === 'join-room') {
+  if (action === 'claim-http-invite') {
     const ssb = startSSB();
-    console.log(`Claiming room invite...`);
     await sleep(300);
-    const [err] = await run(ssb.roomClient.consumeInviteUri)(uri);
-    if (err) console.error(err.message);
-    else console.log(`Success`);
+    console.log(`Claiming invite...`);
+    var [err, msaddr] = await run(ssb.roomClient.consumeInviteUri)(uri);
+    if (err) {
+      console.error(err.message);
+      await run(ssb.close)();
+      return;
+    }
+    console.log(`Connecting to the room...`);
+    await sleep(200);
+    var [err] = await run(ssb.conn.connect)(msaddr);
+    if (err) {
+      console.error(err.message);
+      await run(ssb.close)();
+      return;
+    }
+    console.log(`Storing the room's address in ConnDB...`);
+    var [err] = await run(ssb.conn.remember)(msaddr, {type: 'room'});
+    if (err) {
+      console.error(err.message);
+      await run(ssb.close)();
+      return;
+    } else console.log(`Success`);
     printHorizontalLine();
   }
 
