@@ -2,6 +2,7 @@ const cliWidth = require('cli-width');
 const pad = require('pad');
 const run = require('promisify-tuple');
 const sleep = require('util').promisify(setTimeout);
+const Ref = require('ssb-ref');
 const pkg = require('../package.json');
 import {startSSB} from './ssb';
 
@@ -58,9 +59,10 @@ printHorizontalLine();
     const ssb = startSSB();
     await sleep(300);
     console.log(`Claiming invite...`);
-    var [err, msaddr] = await run(ssb.roomClient.consumeInviteUri)(uri);
+    var [err, msaddr] = await run(ssb.roomClient.claimInviteUri)(uri);
     if (err) {
       console.error(err.message);
+      await sleep(10e3);
       await run(ssb.close)();
       return;
     }
@@ -69,19 +71,22 @@ printHorizontalLine();
     var [err] = await run(ssb.conn.connect)(msaddr);
     if (err) {
       console.error(err.message);
+      await sleep(10e3);
       await run(ssb.close)();
       return;
     }
     console.log(`Storing the room's address in ConnDB...`);
-    var [err] = await run(ssb.conn.remember)(msaddr, {type: 'room'});
+    const key = Ref.getKeyFromAddress(msaddr);
+    var [err] = await run(ssb.conn.remember)(msaddr, {type: 'room', key});
     if (err) {
       console.error(err.message);
+      await sleep(10e3);
       await run(ssb.close)();
       return;
     } else console.log(`Success`);
     printHorizontalLine();
   }
 
-  console.log('Done. This will close in 20 seconds.');
-  await sleep(20e3);
+  console.log('Done. This will close in 30 seconds.');
+  await sleep(30e3);
 })();

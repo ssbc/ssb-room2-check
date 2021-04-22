@@ -18,7 +18,14 @@
     "src/index.ts",
     "src/bin.ts",
     "src/handle-cmd.ts",
-    "src/handle-uri.ts"
+    "src/handle-uri.ts",
+    "src/commands/alias-consume.ts",
+    "src/commands/alias-register.ts",
+    "src/commands/alias-revoke.ts",
+    "src/commands/claim.ts",
+    "src/commands/sign-in.ts",
+    "src/commands/sign-out.ts",
+    "src/commands/whoami.ts"
   ],
   "exclude": ["node_modules"]
 }

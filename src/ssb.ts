@@ -5,7 +5,9 @@ const SecretStack = require('secret-stack');
 const Keys = require('ssb-keys');
 
 export function startSSB() {
-  const path = Path.join(OS.tmpdir(), 'ssb-room2-check');
+  const dummyAccount = Path.join(OS.tmpdir(), 'ssb-room2-check');
+  const prodAccount = Path.join(OS.homedir(), '.ssb');
+  const path = prodAccount // dummyAccount
   const secretPath = Path.join(path, 'secret');
   const keys = Keys.loadOrCreateSync(secretPath);
 
