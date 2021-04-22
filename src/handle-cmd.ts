@@ -18,6 +18,10 @@ import {startSSB} from './ssb';
       type: 'string',
       describe: "Input an alias URL to connect to the alias's owner",
     })
+    .option('register-alias', {
+      type: 'string',
+      describe: 'Input the multiserver address of the server',
+    })
     .option('sign-in', {
       type: 'string',
       describe: 'Input the multiserver address of server to login to',
@@ -72,6 +76,28 @@ import {startSSB} from './ssb';
     const [err] = await run(ssb.roomClient.consumeAliasUri)(uri);
     if (err) console.error(err.message);
     else console.log(`Success`);
+    await run(ssb.close)();
+    return;
+  }
+
+  if (argv.registerAlias) {
+    const msaddr = argv.registerAlias;
+    const ssb = startSSB();
+    console.log(`Connecting to the room...`);
+    var [err, rpc] = await run(ssb.conn.connect)(msaddr);
+    if (err) {
+      console.error(err.message);
+      await run(ssb.close)();
+      return;
+    }
+    console.log(`The room's ID is ${rpc.id}`);
+    const roomId = rpc.id;
+    await sleep(2000);
+    const alias = 'foobar';
+    console.log(`Consuming alias...`);
+    var [err, url] = await run(ssb.roomClient.registerAlias)(roomId, alias);
+    if (err) console.error(err.message);
+    else console.log(`Success: ${url}`);
     await run(ssb.close)();
     return;
   }
