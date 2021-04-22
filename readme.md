@@ -2,23 +2,34 @@
 
 > A CLI tool to manually test room 2.0 features
 
-Uses a throw-away test SSB ID stored at `/tmp/ssb-room2-check`.
+Uses your SSB ID at `~/.ssb`, so make sure you don't have other SSB apps open at the same time.
 
 ## Usage
 
 ```
 $ npx ssb-room2-check --help
 
-ssb-room2-check [opts]
+ssb-room2-check <command>
+
+Commands:
+  ssb-room2-check whoami                    Display info about the SSB feed used
+                                            here
+  ssb-room2-check claim <invite>            Claim an HTTP invite to become a
+                                            member of the room
+  ssb-room2-check sign-in <roomid>          Input the SSB ID of the room where
+                                            to sign in
+  ssb-room2-check sign-out <roomid>         Input the SSB ID of the room where
+                                            to sign out
+  ssb-room2-check alias-consume <alias>     Input an alias URL to connect to the
+                                            alias's owner
+  ssb-room2-check alias-register <roomid>   Input the SSB ID of the room and the
+  <alias>                                   desired alias
+  ssb-room2-check alias-revoke <roomid>     Input the SSB ID of the room and
+  <alias>                                   your alias to be deleted
 
 Options:
-  --help           Show help                                           [boolean]
-  --version        Show version number                                 [boolean]
-  --whoami         Display info about the dummy SSB feed used here     [boolean]
-  --claim-invite   Input an invite URL to become a room member          [string]
-  --consume-alias  Input an alias URL to connect to the alias's owner   [string]
-  --sign-in        Input the multiserver address of server to login to  [string]
-  --sign-out       Input the multiserver address of server to sign out  [string]
+  --version  Show version number                                       [boolean]
+  --help     Show help                                                 [boolean]]
 ```
 
 ## Custom URI Setup
@@ -69,7 +80,7 @@ Please notice that the sample data in these examples are fictitious and most lik
 ### First, let's consume some user's alias
 
 ```
-$ npx ssb-room2-check --consume-alias="alice.scuttlebutt.eu"
+$ npx ssb-room2-check alias-consume alice.scuttlebutt.eu
 
 Consuming alias...
 Success
@@ -80,7 +91,7 @@ Alternatively, you can also click on the SSB URI when visiting the page `alice.s
 ### Then, let's claim an invite link to become a member
 
 ```
-$ npx ssb-room2-check --claim-invite="https://scuttlebutt.eu/join?invite=39c0ac1850ec9af14f1bb73"
+$ npx ssb-room2-check claim https://scuttlebutt.eu/join?invite=39c0ac1850ec9af14f1bb73
 
 Claiming invite...
 Connecting to the room...
@@ -93,7 +104,7 @@ Alternatively, instead of using the CLI, you can go to the invite link in your b
 ### Finally, let's sign-in with SSB
 
 ```
-$ npx ssb-room2-check --sign-in="net:scuttlebutt.eu:8008~shs:zz+n7zuFc4wofIgKeEpXgB+/XQZB43Xj2rrWyD0QM2M="
+$ npx ssb-room2-check sign-in @zz+n7zuFc4wofIgKeEpXgB+/XQZB43Xj2rrWyD0QM2M=.ed25519
 
 Connecting to the room...
 Producing Sign-in URL...
@@ -112,7 +123,7 @@ Alternatively, instead of using the CLI, you can go to the room's sign-in page, 
 The following command should clear previous browser sessions:
 
 ```
-$ npx ssb-room2-check --sign-out "net:scuttlebutt.eu:8008~shs:zz+n7zuFc4wofIgKeEpXgB+/XQZB43Xj2rrWyD0QM2M="
+$ npx ssb-room2-check sign-out @zz+n7zuFc4wofIgKeEpXgB+/XQZB43Xj2rrWyD0QM2M=.ed25519
 
 Connecting to the room...
 Invalidate all tokens...
