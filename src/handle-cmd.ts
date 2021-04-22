@@ -96,8 +96,8 @@ import {startSSB} from './ssb';
       return;
     }
     if (url.includes('localhost')) {
-      url = url.replace('localhost', 'localhost:3000')
-      url = url.replace('https', 'http')
+      url = url.replace('localhost', 'localhost:3000');
+      url = url.replace('https', 'http');
     }
     console.log(
       `Success. Open the following link in your browser ` +
