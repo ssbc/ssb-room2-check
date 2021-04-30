@@ -18,7 +18,7 @@ exports.handler = async function (argv: any) {
   const uri = argv.invite;
   const ssb = startSSB();
   console.log(`Claiming invite...`);
-  var [err, msaddr] = await run(ssb.roomClient.claimInviteUri)(uri);
+  var [err, msaddr] = await run(ssb.httpInviteClient.claim)(uri);
   if (err) {
     console.error(err.message);
     await run(ssb.close)();

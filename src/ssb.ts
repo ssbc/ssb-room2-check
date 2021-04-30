@@ -15,6 +15,7 @@ export function startSSB() {
     .use(require('ssb-conn'))
     .use(require('ssb-room-client'))
     .use(require('ssb-http-auth-client'))
+    .use(require('ssb-http-invite-client'))
     .call(null, {
       path,
       keys,

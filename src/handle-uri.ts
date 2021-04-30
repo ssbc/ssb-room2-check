@@ -59,7 +59,7 @@ printHorizontalLine();
     const ssb = startSSB();
     await sleep(300);
     console.log(`Claiming invite...`);
-    var [err, msaddr] = await run(ssb.roomClient.claimInviteUri)(uri);
+    var [err, msaddr] = await run(ssb.httpInviteClient.claim)(uri);
     if (err) {
       console.error(err.message);
       await sleep(10e3);
