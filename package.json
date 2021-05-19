@@ -19,12 +19,12 @@
     "promisify-tuple": "^1.0.1",
     "secret-stack": "^6.4.0",
     "ssb-caps": "^1.1.0",
-    "ssb-conn": "3.2.1",
+    "ssb-conn": "4.0.0",
     "ssb-http-auth-client": "^0.6.0",
     "ssb-http-invite-client": "^0.1.0",
     "ssb-keys": "^8.1.0",
     "ssb-ref": "^2.14.3",
-    "ssb-room-client": "^0.15.0",
+    "ssb-room-client": "^0.19.1",
     "yargs": "^16.2.0"
   },
   "devDependencies": {
