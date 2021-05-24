@@ -16,15 +16,15 @@
   "dependencies": {
     "cli-width": "^3.0.0",
     "pad": "^3.2.0",
-    "promisify-tuple": "^1.0.1",
+    "promisify-tuple": "^1.2.0",
     "secret-stack": "^6.4.0",
     "ssb-caps": "^1.1.0",
-    "ssb-conn": "4.0.0",
+    "ssb-conn": "4.0.1",
     "ssb-http-auth-client": "^0.6.0",
     "ssb-http-invite-client": "^0.1.0",
     "ssb-keys": "^8.1.0",
     "ssb-ref": "^2.14.3",
-    "ssb-room-client": "^0.19.1",
+    "ssb-room-client": "^0.21.0",
     "yargs": "^16.2.0"
   },
   "devDependencies": {
