@@ -1,6 +1,6 @@
 {
   "name": "ssb-room2-check",
-  "version": "0.9.0",
+  "version": "0.10.0",
   "description": "CLI tool to manually test room 2.0 features",
   "main": "lib/index.js",
   "bin": "lib/bin.js",
