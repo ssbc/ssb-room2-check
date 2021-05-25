@@ -25,7 +25,8 @@
     "src/commands/claim.ts",
     "src/commands/sign-in.ts",
     "src/commands/sign-out.ts",
-    "src/commands/whoami.ts"
+    "src/commands/whoami.ts",
+    "src/commands/watch.ts",
   ],
   "exclude": ["node_modules"]
 }

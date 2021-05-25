@@ -9,6 +9,7 @@ const yargs = require('yargs/yargs');
     .command(require('./commands/alias-consume'))
     .command(require('./commands/alias-register'))
     .command(require('./commands/alias-revoke'))
+    .command(require('./commands/watch'))
     .demandCommand()
     .help()
     .wrap(80)
