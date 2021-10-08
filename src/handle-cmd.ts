@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2021 Andre Staltz
+//
+// SPDX-License-Identifier: MIT
+
 const yargs = require('yargs/yargs');
 
 (async () => {

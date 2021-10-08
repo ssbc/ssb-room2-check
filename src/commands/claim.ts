@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2021 Andre Staltz
+//
+// SPDX-License-Identifier: MIT
+
 const run = require('promisify-tuple');
 const sleep = require('util').promisify(setTimeout);
 const Ref = require('ssb-ref');

@@ -1,4 +1,9 @@
 #!/usr/bin/env node
+
+// SPDX-FileCopyrightText: 2021 Andre Staltz
+//
+// SPDX-License-Identifier: MIT
+
 import {isSsbUri} from './utils';
 
 setTimeout(() => {

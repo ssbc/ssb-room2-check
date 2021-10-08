@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2021 Andre Staltz
+//
+// SPDX-License-Identifier: MIT
+
 const cliWidth = require('cli-width');
 const pad = require('pad');
 const run = require('promisify-tuple');

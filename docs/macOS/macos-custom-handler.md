@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2021 Andre Staltz
+
+SPDX-License-Identifier: CC0-1.0
+-->
+
 # Creating an `SSB:` Custom Handler for macOS
 
 The easiest way of doing it, that is built-in with all macs, is to use AppleScript. Open the _AppleScript Editor_ and create a new document with the following script:

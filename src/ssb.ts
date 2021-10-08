@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2021 Andre Staltz
+//
+// SPDX-License-Identifier: MIT
+
 import OS = require('os');
 import Path = require('path');
 const Caps = require('ssb-caps');

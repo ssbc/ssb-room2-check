@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2021 Andre Staltz
+//
+// SPDX-License-Identifier: MIT
+
 export function isSsbUri(input: string): boolean {
   if (!input) return false;
   if (typeof input !== 'string') return false;
